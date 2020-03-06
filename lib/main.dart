@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'simple_page_widgets.dart';
+import 'home_manager.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,14 +25,14 @@ class _MyAppState extends State<MyApp> {
       'platformView': (pageName, params, _) => PlatformRouteWidget(),
       'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
 
-      ///可以在native层通过 getContainerParams 来传递参数
+      'homeManager': (pageName, params, _) => HomeManager(), // 房间管理
+
+      // 可以在 native 层通过 getContainerParams 来传递参数
       'flutterPage': (pageName, params, _) {
         print("flutterPage params:$params");
 
-        return FlutterRouteWidget(params:params);
-        // return Center(
-        //   child: Text('Unknown route: ', textDirection: TextDirection.ltr),
-        // );
+        // return FlutterRouteWidget(params:params);
+        return HomeManager();
       },
     });
     FlutterBoost.singleton
@@ -43,7 +44,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         title: 'Flutter Boost example',
         builder: FlutterBoost.init(postPush: _onRoutePushed),
-        home: Container(color: Colors.red));
+        home: Container(color: Colors.white));
   }
 
   void _onRoutePushed(
