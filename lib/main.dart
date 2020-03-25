@@ -18,11 +18,11 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     FlutterBoost.singleton.registerPageBuilders({
-      'embeded': (pageName, params, _) => EmbededFirstRouteWidget(),
+      // 'embeded': (pageName, params, _) => EmbededFirstRouteWidget(),
       'first': (pageName, params, _) => FirstRouteWidget(),
       'second': (pageName, params, _) => SecondRouteWidget(),
       'tab': (pageName, params, _) => TabRouteWidget(),
-      'platformView': (pageName, params, _) => PlatformRouteWidget(),
+      // 'platformView': (pageName, params, _) => PlatformRouteWidget(),
       'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
 
       'homeManager': (pageName, params, _) => HomeManager(), // 房间管理
