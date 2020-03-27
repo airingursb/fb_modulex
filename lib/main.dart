@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 import 'simple_page_widgets.dart';
 import 'home_manager.dart';
+import 'home.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,13 +27,14 @@ class _MyAppState extends State<MyApp> {
       'flutterFragment': (pageName, params, _) => FragmentRouteWidget(params),
 
       'homeManager': (pageName, params, _) => HomeManager(), // 房间管理
+      'home': (pageName, params, _) => Home(), // 直播间
 
       // 可以在 native 层通过 getContainerParams 来传递参数
       'flutterPage': (pageName, params, _) {
         print("flutterPage params:$params");
 
-        // return FlutterRouteWidget(params:params);
-        return HomeManager();
+        return FlutterRouteWidget(params:params);
+        // return HomeManager();
       },
     });
     FlutterBoost.singleton

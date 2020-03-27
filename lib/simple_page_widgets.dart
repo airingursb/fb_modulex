@@ -216,6 +216,23 @@ class _FlutterRouteWidgetState extends State<FlutterRouteWidget> {
                       margin: const EdgeInsets.all(8.0),
                       color: Colors.yellow,
                       child: Text(
+                        '直播间',
+                        style: TextStyle(fontSize: 22.0, color: Colors.black),
+                      )),
+
+                  ///后面的参数会在native的IPlatform.startActivity方法回调中拼接到url的query部分。
+                  ///例如：sample://nativePage?aaa=bbb
+                  onTap: () => FlutterBoost.singleton
+                      .open("home", urlParams: <dynamic,dynamic>{
+                    "query": {"aaa": "bbb"}
+                  }),
+                ),
+                InkWell(
+                  child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      margin: const EdgeInsets.all(8.0),
+                      color: Colors.yellow,
+                      child: Text(
                         'open native page',
                         style: TextStyle(fontSize: 22.0, color: Colors.black),
                       )),
