@@ -55,12 +55,14 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-
           generateBluredImage(size),
-
           Container(
               alignment: AlignmentDirectional.topCenter,
-              margin: EdgeInsets.only(top: 100),
+              margin: EdgeInsets.only(top: 80),
+              padding: EdgeInsets.only(
+                left: 12.5,
+                right: 12.5,
+              ),
               width: size.width,
               child: Column(
                 children: <Widget>[
@@ -70,10 +72,121 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
                     height: 350,
                     fit: BoxFit.fill,
                   ),
-                  Container(),
-                  Container(),
                   Container(
-                    margin: EdgeInsets.only(left: 12.5, right: 12.5, top: 300),
+                      alignment: AlignmentDirectional.topCenter,
+                      margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  '等你下课',
+                                  style: TextStyle(
+                                    fontSize: 26,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    height: 2,
+                                  ),
+                                ),
+                                Text(
+                                  '周杰伦',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white54,
+                                    height: 2,
+                                  ),
+                                ),
+                                Text(
+                                  '编曲：Airing',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.white54,
+                                    height: 3,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 0),
+                              child: Icon(
+                                Icons.pie_chart_outlined,
+                                color: Colors.white54,
+                                size: 40.0,
+                              ),
+                            )
+                          ])),
+
+                  // * Tools
+                  Container(
+                    margin: EdgeInsets.only(top: 100, left: 20, right: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Icon(
+                          Icons.hearing,
+                          color: Colors.white54,
+                          size: 40.0,
+                        ),
+                        Icon(
+                          Icons.file_download,
+                          color: Colors.white54,
+                          size: 40.0,
+                        ),
+                        Icon(
+                          Icons.chat_bubble_outline,
+                          color: Colors.white54,
+                          size: 40.0,
+                        ),
+                        Icon(
+                          Icons.more_horiz,
+                          color: Colors.white54,
+                          size: 40.0,
+                        )
+                      ],
+                    ),
+                  ),
+
+                  // * Progress
+                  Container(
+                    margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 350,
+                          height: 2,
+                          decoration: BoxDecoration(color: Colors.white54),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 6),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                '00:00',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: Colors.white54,
+                                ),
+                              ),
+                              Text(
+                                '04:24',
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: Colors.white54,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+
+                  // * Controller
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: <Widget>[
@@ -121,8 +234,6 @@ class HomeState extends State<Home> with TickerProviderStateMixin {
       ),
     );
   }
-
-
 
   Widget generateBluredImage(Size size) {
     return Container(
